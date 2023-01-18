@@ -6,6 +6,7 @@ class BasePageLocators():
     LOGIN_LINK_INVALID = (By.CSS_SELECTOR, "#login_link_inc")
     BASKET = (By.CSS_SELECTOR, 'span.btn-group > a.btn.btn-default')
 
+
 class LoginPageLocators():
     LOGIN_EMAIL = (By.XPATH, "//input[@id='id_login-username']")
     LOGIN_PASS = [By.XPATH, "//input[@id='id_login-password']"]

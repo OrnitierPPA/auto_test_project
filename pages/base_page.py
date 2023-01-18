@@ -1,6 +1,6 @@
 import math
 
-from .locators import BasePageLocators, BasketPageLocators
+from .locators import BasePageLocators
 
 from selenium.common.exceptions import NoSuchElementException, NoAlertPresentException, TimeoutException
 from selenium.webdriver.support.ui import WebDriverWait
@@ -62,7 +62,7 @@ class BasePage():
         return True
 
     def go_to_login_page(self):
-        login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK_INVALID)
+        login_link = self.browser.find_element(*BasePageLocators.LOGIN_LINK)
         login_link.click()
 
     def should_be_login_link(self):
