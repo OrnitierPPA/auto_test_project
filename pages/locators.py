@@ -21,7 +21,7 @@ class ProductPageLocators():
     ADD_TO_BASKET = (By.CLASS_NAME, "btn-add-to-basket")
     BOOK_NAME = (By.CSS_SELECTOR, 'div.product_main > h1')
     SUCCESS_MESSAGE = (By.CSS_SELECTOR, 'div.alert:first-child')
-    ALERT_BOOK_NAME = (By.CSS_SELECTOR, 'div.alert:first-child > div.alertinner > strong')
+    ALERT_BOOK_NAME = (By.XPATH, '//div[@class="alert alert-safe alert-noicon alert-success  fade in"][1]/div[@class="alertinner "]/strong')
     PRODUCT_COST = (By.CSS_SELECTOR, 'div.product_main > p.price_color')
     BUSKET_COST = (By.CSS_SELECTOR, 'div.alert > div.alertinner > p > strong')
 

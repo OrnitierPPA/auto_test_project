@@ -1,14 +1,15 @@
 import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
+from selenium.webdriver import ChromeOptions
 from selenium.webdriver.firefox.options import Options
 
 def pytest_addoption(parser):
-    parser.addoption('--browser_name', action='store', default='firefox',
+    parser.addoption('--browser_name', action='store', default='chrome',
                      help="Choose browser: chrome or firefox")
     parser.addoption('--language', action='store', default='ru',
                      help="Choose language: '--language=en' or '--language=ru'")
 
+# Выбор языка для хрома почему-то роняет весь код, но можете попробовать разкоментить и протестировать
 @pytest.fixture(scope="function")
 def browser(request):
     browser_name = request.config.getoption("browser_name")
@@ -16,10 +17,9 @@ def browser(request):
     browser = None
     if browser_name == "chrome":
         print("\nstart chrome browser for test..")
-        # options = Options()
-        # options.add_experimental_option('prefs', {'intl.accept_languages': user_language})
-        # browser = webdriver.Chrome(options=options)
-        browser = webdriver.Chrome()
+        options = ChromeOptions()
+        options.add_experimental_option('prefs', {'intl.accept_languages': user_language})
+        browser = webdriver.Chrome(options=options)
         browser.maximize_window()
     elif browser_name == "firefox":
         print("\nstart firefox browser for test..")
