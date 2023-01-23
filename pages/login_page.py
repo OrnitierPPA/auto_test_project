@@ -22,3 +22,12 @@ class LoginPage(BasePage):
         assert self.is_element_present(*LoginPageLocators.REG_PASS), "Registration password field doesn't exist"
         assert self.is_element_present(*LoginPageLocators.REG_PASS_CONF), "Registration password confirm field doesn't exist"
         assert True
+
+    def register_new_user(self, email, password):
+        self.browser.find_element(*LoginPageLocators.REG_EMAIL).send_keys(email)
+        self.browser.find_element(*LoginPageLocators.REG_PASS).send_keys(password)
+        self.browser.find_element(*LoginPageLocators.REG_PASS_CONF).send_keys(password)
+        self.is_element_present(*LoginPageLocators.REG_BUTTON)
+        button = self.browser.find_element(*LoginPageLocators.REG_BUTTON)
+        button.click()
+
